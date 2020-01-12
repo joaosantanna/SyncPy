@@ -125,3 +125,71 @@ print('''
         Local ----> remoto
         remoto ----> local
 ''')
+
+# variaveis que vão guardar os caminhos locais e remotos
+local = 'local:/Users/jsantanna/Dropbox2'
+remoto = 'remote:/'
+
+
+while True:
+    print('''
+        Escolha uma opcao
+        0- sair
+        1- Ver configuracao
+        -------sync--------
+        2- Sincronizar Local -->  Remoto
+        3- Sincronizar Remoto --> Local
+        4- Sobre
+    ''')
+    try:
+        op = int(input('Opcao >:'))
+
+        if op == 0:
+            print('\n\n')
+            break
+
+        elif op == 1:
+            print(f'Endereco Remoto - {remoto}')
+            print(f'Endereco Local - {local}')
+        
+        elif op == 2:
+            comando = 'rclone sync ' + local + ' ' + remoto
+            print('Iniciando sincronização Local --> Dropbox')
+            print(f'local:{local} --> remoto:{remoto}')
+            print('...Aguarde termino')
+            r = os.system(comando)
+            if r == 0:
+                print('Sincronização completa com sucesso')
+        
+        elif op == 3:
+            comando = 'rclone sync ' + remoto + ' ' + local
+            print('Iniciando sincronização Dropbox --> Local')
+            print(f'remoto:{remoto} --> local:{local}')
+            print('...Aguarde termino')
+            r = os.system(comando)
+            if r == 0:
+                print('Sincronização completa com sucesso')
+
+        elif op == 4:
+            print('''
+                Rclone utility 
+                configurada para Dropbox
+                @author: Joao F. Santanna Filho
+                @email: joaosantanna@yahoo.com.br
+                @version: 1.2
+                Open source software use with precaution
+            ''')
+
+        else:
+            print('Comando não cadastrado')
+    
+    except ValueError as e:
+        print('Erro na leitura do comando')
+        print('voce deveria ter digitado um numero')
+        print(f'Detalhe:{e}')
+        time.sleep(4)
+    except Exception as e:
+        print('Erro inesperado')
+        print('Tente novamente')
+        print(f'Detalhe:{e}')
+        time.sleep(4)
