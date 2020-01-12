@@ -193,3 +193,11 @@ while True:
         print('Tente novamente')
         print(f'Detalhe:{e}')
         time.sleep(4)
+
+# TODO: preparar uma GUI para o aplicativo
+#TODO: preparar uma funcao para adicionar pastar de sincronizacao 
+# TODO: Preparar uma funcao para carregar as configuracoes automaticamente o pyman tinha uma coisa assim
+#TODO: usar o pyinstaller para criar um executavel
+# TODO : Fazer uma barra de progresso das sincronizacoes ,etc...
+# TODO : Cria suite de testes
+# TODO : passar o pylint no codigo 
